@@ -1,0 +1,124 @@
+nav {
+    align-items: center;
+    background: #161d2f;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 1160px;
+    left: 32px;
+    position: absolute;
+    top: 32px;
+    width: 96px;
+
+}
+
+.navLinks {
+    display: flex;
+    flex-direction: column;
+}
+
+.profileImage{
+    height: 40px;
+    width: 40px;
+    margin-right: 16px;
+}
+
+@media screen and (min-width: 769px) {
+ #logo {
+    margin: 35px 75px;
+}
+    .navLink {
+        margin: 40px 40px;;
+    } 
+
+    .profileImage{
+        height: 40px;
+        width: 40px;
+        margin: 552px 28px 32px 28px; 
+    }
+}
+
+@media screen and (max-width: 500px) {
+    nav {
+        flex-direction: row;
+        border-radius: 0;
+        height: 56px;
+        left: 0;
+        right: 0;
+        top: 0;
+        justify-content: space-between;
+        width: 100% !important;
+        
+    }
+    nav svg {
+        margin: 0 16px;
+    }
+    .navLinks {
+        display: flex;
+        flex-direction: row;
+    }
+    #logo {
+        margin: 0 20px;
+    }
+
+    .profileImage{
+        height: 40px;
+        width: 40px;
+        margin-right: 16px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: row;
+        height: 72px;
+        left: 50%;
+        top: 24;
+        justify-content: space-between;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        width: 95%;
+    }
+    
+    nav svg {
+        margin: 0 16px;
+    }
+    .navLinks {
+        display: flex;
+        flex-direction: row;
+    }
+    #logo {
+        margin: 0 20px;
+    }
+}
+
+
+
+
+
+
+nav a {
+    cursor: pointer;
+}
+
+nav a svg {
+    cursor: pointer;
+}
+
+
+
+.icon path:hover {
+    fill: #FC4747
+}
+
+#test svg:hover {
+    fill: #FC4747
+}
+
+.active svg path {
+    fill: #FFF;
+}
+
+
+
+

@@ -1,0 +1,21 @@
+
+
+<app-search-bar></app-search-bar>
+
+<section>
+    <h2>TV Series</h2>
+    <h2></h2>
+    <article class="card" *ngFor="let show of allShows | tv let i = index">
+        <img src={{allShows[i].thumbnail.regular.large}} alt="">
+        <div>
+            <p>
+                {{allShows[i].year}}
+            </p>
+            <span></span>
+            <img src="../../assets/icon-category-tv.svg" alt="tv-icon">
+            <p>TV Series</p>
+            <span></span>
+            <p>{{allShows[i].rating}}</p>
+        </div>
+    </article>
+</section>
