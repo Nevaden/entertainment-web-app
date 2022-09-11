@@ -8,18 +8,21 @@ import { BookmarkPipe } from '../pipes/bookmark.pipe';
   styleUrls: ['./bookmarks.component.css']
 })
 export class BookmarksComponent implements OnInit {
-  allShows: any;
+  allShows: any = null;
+ 
   constructor(private getData: DataService,
     private bookmarkPipe: BookmarkPipe ) { }
 
   ngOnInit(): void {
-    this.GetData();
+      this.GetData();
+  
   }
   GetData(){
     return this.getData.getData().subscribe((data) =>{
-      this.allShows = Object.keys(data).map(key=>{
-        return {...data[key], uuid:key}
-      })
+     
+      this.allShows = data
     })
+    
+   
   }
 }

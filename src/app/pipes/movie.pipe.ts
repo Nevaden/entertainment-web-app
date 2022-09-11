@@ -13,8 +13,9 @@ export class MoviePipe implements PipeTransform {
       if(element.category.toLowerCase() == 'movie'){
         returnArray.push(element);
       }
+      
     })
-
+    console.log(returnArray)
     return returnArray;
   }
 

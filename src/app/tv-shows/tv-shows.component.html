@@ -4,18 +4,28 @@
 
 <section>
     <h2>TV Series</h2>
-    <h2></h2>
-    <article class="card" *ngFor="let show of allShows | tv let i = index">
-        <img src={{allShows[i].thumbnail.regular.large}} alt="">
+    <article class="card" *ngFor="let show of tvShows let i = index">
+        <img src={{show.thumbnail.regular.large}} alt="">
         <div>
             <p>
-                {{allShows[i].year}}
+                {{tvShows[i].year}}
             </p>
             <span></span>
             <img src="../../assets/icon-category-tv.svg" alt="tv-icon">
             <p>TV Series</p>
             <span></span>
-            <p>{{allShows[i].rating}}</p>
+            <p>{{tvShows[i].rating}}</p>
         </div>
+        <h3>{{tvShows[i].title}}</h3>
+        <div *ngIf="tvShows[i].isBookmarked === false">
+            <div class="bookmark-container" (click)="updateBookmark(true,tvShows[i].title)" >
+                <img src="../../assets/icon-bookmark-empty.svg" alt="empty bookmark icon">
+            </div>
+        </div>
+        <ng-template *bookmarked >
+            <div class="bookmark-container" (click)="updateBookmark(true,tvShows[i].title)" >
+                <img src="../../assets/icon-bookmark-full.svg" alt="empty bookmark icon">
+            </div>
+        </ng-template>
     </article>
 </section>

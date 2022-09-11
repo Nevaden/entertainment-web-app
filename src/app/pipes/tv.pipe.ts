@@ -12,9 +12,11 @@ export class TvPipe implements PipeTransform {
     value.forEach((element: { category: string; }) => {
       if(element.category.toLowerCase() == 'tv series'){
         returnArray.push(element);
+        console.log(element, 'element return')
       }
     })
-
+    console.log(returnArray)
+    
     return returnArray;
   }
 

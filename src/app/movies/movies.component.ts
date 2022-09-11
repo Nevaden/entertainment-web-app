@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../service/data.service';
 import { MoviePipe } from '../pipes/movie.pipe';
+import { subscribeOn } from 'rxjs';
 
 @Component({
   selector: 'app-movies',
@@ -10,12 +11,17 @@ import { MoviePipe } from '../pipes/movie.pipe';
 export class MoviesComponent implements OnInit {
 
   allShows: any;
+  movies: any;
+  itemIndex: any;
   constructor(private getData: DataService,
     private moviePipe: MoviePipe){ }
 
   ngOnInit(): void {
     this.GetData();
+    this.GetMovies();
+
   }
+
 
   GetData(){
     return this.getData.getData().subscribe((data) =>{
@@ -24,4 +30,31 @@ export class MoviesComponent implements OnInit {
       })
     })
   }
+
+  GetMovies() {
+    return this.getData.getData().subscribe((data)=>{
+      this.movies = this.moviePipe.transform(data)
+      console.log(this.moviePipe,"please")
+    })
+  }
+
+  updateBookmark(status: boolean,title:string){
+    this.itemIndex = this.findTitleIndex(title, this.allShows);
+    this.getData.toggleBookmark(this.itemIndex, status).subscribe((data) =>{})
+    
+    this.itemIndex = this.findTitleIndexMovie(title);
+    return this.movies[this.itemIndex].isBookmarked = !this.movies[this.itemIndex].isBookmarked
+  }
+
+  findTitleIndex(title: string, array: any){
+    let titleIndex = this.allShows.findIndex((i: { title:string; }) => i.title === title)
+    return titleIndex;
+  }
+
+  findTitleIndexMovie(title: string){
+    let titleIndex = this.movies.findIndex((i: { title:string; }) => i.title === title)
+    return titleIndex;
+  }
+  
+
 }

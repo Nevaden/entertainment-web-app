@@ -20,20 +20,19 @@ export class DataService {
     return this.http.get(this.url)
   }
 
-  // getFavorites(): Observable<any>{
-  //   const url = `${this.favsUrl}${this.jsonEXT}`
-  //   return this.http.get<Product>(this.url2)
+
+  toggleBookmark(index: string, status: boolean) {
+    let urlBookmark = `${this.firebaseURL}${index}${this.jsonEXT}`
+    console.log(urlBookmark)
+    return this.http.patch<any>(urlBookmark,{isBookmarked: status})
+  }
+
+  // toggleFavoriteStatus(url: string, itemKey:string, status: Boolean) {
+  //   itemKey = getItemKey(title)
+  //   patch(url+itemKey,{isBookmarked: true})
+  //   asdasdasd/3
   // }
 
-  // addFavorite(newItem: any){
-  //   return this.http.post<any>(this.url2, newItem)
-  // }
-
-  // deleteFav(id:any){
-  //   const url3 = `${this.favsUrl}/${id}${this.jsonEXT}`
-  //   console.log("delete fired")
-  //   return this.http.delete(url3)
-  // }
 
  
   }

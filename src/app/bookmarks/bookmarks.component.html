@@ -1,5 +1,5 @@
 
-<app-search-bar></app-search-bar>
+<!-- <app-search-bar></app-search-bar> -->
 
 <h2>Bookmarked Movies</h2>
 
@@ -22,6 +22,9 @@
 <!-- let i = index -->
 <h2>Bookmarked TV Series</h2>
 <section>
+    <!-- <div *ngIf="allShows == null; else elseBlock">Content to render when condition is true. </div>
+    <ng-template #elseBlock>Content to render when condition is false. -->
+
     <article class="card" *ngFor="let show of allShows | tv | bookmark let i = index">
         <img src={{allShows[i].thumbnail.regular.large}} alt="">
         <div>
@@ -39,4 +42,6 @@
             <img src="" alt="">
         </div>
     </article>
+    
+<!-- </ng-template> -->
 </section>
