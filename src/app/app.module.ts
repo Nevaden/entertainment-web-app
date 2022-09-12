@@ -12,9 +12,11 @@ import { HomeTrendingPipe } from './pipes/home-trending.pipe';
 import { MoviePipe } from './pipes/movie.pipe';
 import { TvPipe } from './pipes/tv.pipe';
 import { BookmarkPipe } from './pipes/bookmark.pipe';
-import { SearchBarComponent } from './search-bar/search-bar.component';
 import { FitlerPipe } from './pipes/fitler.pipe';
 import { FormsModule } from '@angular/forms';
+import { SwiperModule } from 'swiper/angular';
+import { SwiperComponent } from './swiper/swiper.component';
+import { NguCarouselModule } from '@ngu/carousel';
 
 
 @NgModule({
@@ -29,14 +31,16 @@ import { FormsModule } from '@angular/forms';
     MoviePipe,
     TvPipe,
     BookmarkPipe,
-    SearchBarComponent,
-    FitlerPipe
+    FitlerPipe,
+    SwiperComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    SwiperModule,
+    NguCarouselModule
   ],
   providers: [
     MoviePipe,

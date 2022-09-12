@@ -6,32 +6,32 @@
     <input type="text" id="bar" placeholder="Search for movies or TV series" [(ngModel)]="filterContent">
 </div>
 
+<!-- 
+YOUR CAROSEL GOES HERE
+ -->
 
-
-<h1>Trending</h1>
-<div>{{trending}}</div>
-<hr>
-<hr>
-<hr>
-
-
-
-<section>
+<section class="cardContainer">
     <h2>Recommended for you</h2>
     <h2></h2>
     <article class="card" *ngFor="let show of (homeShows | fitler:filterContent:'title') let i = index">
         <img src={{show.thumbnail.regular.large}} alt="">
-        <div>
+        <div class="cardData-container">
             <p>
                 {{show.year}}
             </p>
             <span></span>
-            <img src="../../assets/icon-category-movie.svg" alt="movie-icon">
+            <img src="../../assets/icon-category-movie.svg" alt="movie-icon" class="typeImg">
             <p>{{show.category}}</p>
             <span></span>
             <p>{{show.rating}}</p>
         </div>
         <h3>{{show.title}}</h3>
+        <div class="playHover">
+            <div class="playButton">
+                <img src="../../assets/icon-play.svg" alt="play button">
+                <p>Play</p>
+            </div>
+        </div>
         <div *ngIf="show.isBookmarked === false; else bookmarked">
             <div class="bookmark-container" (click)="updateBookmark(true,show.title)" >
                 <img src="../../assets/icon-bookmark-empty.svg" alt="empty bookmark icon">

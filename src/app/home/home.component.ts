@@ -4,12 +4,15 @@ import { MoviePipe } from '../pipes/movie.pipe';
 import { TvPipe } from '../pipes/tv.pipe';
 import { HomeTrendingPipe } from '../pipes/home-trending.pipe';
 
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
   homeShows: any;
   movies: any;
   filterContent = '';
@@ -57,4 +60,6 @@ export class HomeComponent implements OnInit {
     let titleIndex = this.movies.findIndex((i: { title:string; }) => i.title === title)
     return titleIndex;
   }
+ 
+
 }

@@ -1,9 +1,24 @@
 *{
     box-sizing: border-box;
 }
+#root {
+    flex-direction: column;
+    min-height: 1100px;
+    padding-left: 164px;
+    position: relative;
+}
+@media only screen and (max-width: 768px)  {
+    #root {
+        padding-left: 25px;
+    }
+    
+}
 
-body {
-    background-color: #10141E;
+
+#root, body {
+    background: #10141e;
+    display: flex;
+    width: 100%;
 }
 
 
