@@ -17,13 +17,13 @@
             <p>{{tvShows[i].rating}}</p>
         </div>
         <h3>{{tvShows[i].title}}</h3>
-        <div *ngIf="tvShows[i].isBookmarked === false">
+        <div *ngIf="tvShows[i].isBookmarked === false; else bookmarked">
             <div class="bookmark-container" (click)="updateBookmark(true,tvShows[i].title)" >
                 <img src="../../assets/icon-bookmark-empty.svg" alt="empty bookmark icon">
             </div>
         </div>
-        <ng-template *bookmarked >
-            <div class="bookmark-container" (click)="updateBookmark(true,tvShows[i].title)" >
+        <ng-template #bookmarked >
+            <div class="bookmark-container" (click)="updateBookmark(false,tvShows[i].title)" >
                 <img src="../../assets/icon-bookmark-full.svg" alt="empty bookmark icon">
             </div>
         </ng-template>

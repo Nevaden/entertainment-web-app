@@ -2,7 +2,7 @@
 <section>
     <h2>Movies</h2>
     <h2></h2>
-    <article class="card" *ngFor="let show of movies let i = index">
+    <article class="card" *ngFor="let show of (movies | fitler:filterContent:'title') let i = index">
         <img src={{movies[i].thumbnail.regular.large}} alt="">
         <div>
             <p>

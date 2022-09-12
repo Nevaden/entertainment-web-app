@@ -13,7 +13,8 @@ import { MoviePipe } from './pipes/movie.pipe';
 import { TvPipe } from './pipes/tv.pipe';
 import { BookmarkPipe } from './pipes/bookmark.pipe';
 import { SearchBarComponent } from './search-bar/search-bar.component';
-
+import { FitlerPipe } from './pipes/fitler.pipe';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -28,14 +29,21 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     MoviePipe,
     TvPipe,
     BookmarkPipe,
-    SearchBarComponent
+    SearchBarComponent,
+    FitlerPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [MoviePipe,TvPipe,BookmarkPipe,HomeTrendingPipe],
+  providers: [
+    MoviePipe,
+    TvPipe,
+    BookmarkPipe,
+    HomeTrendingPipe,
+    FitlerPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

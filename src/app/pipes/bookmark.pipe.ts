@@ -14,7 +14,7 @@ export class BookmarkPipe implements PipeTransform {
         returnArray.push(element);
       }
     })
-    console.log(returnArray)
+    //console.log(returnArray)
     return returnArray;
   }
 

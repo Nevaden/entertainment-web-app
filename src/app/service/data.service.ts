@@ -23,7 +23,6 @@ export class DataService {
 
   toggleBookmark(index: string, status: boolean) {
     let urlBookmark = `${this.firebaseURL}${index}${this.jsonEXT}`
-    console.log(urlBookmark)
     return this.http.patch<any>(urlBookmark,{isBookmarked: status})
   }
 

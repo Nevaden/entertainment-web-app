@@ -9,7 +9,7 @@ import { subscribeOn } from 'rxjs';
   styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent implements OnInit {
-
+  filterContent: any = '';
   allShows: any;
   movies: any;
   itemIndex: any;
@@ -39,14 +39,14 @@ export class MoviesComponent implements OnInit {
   }
 
   updateBookmark(status: boolean,title:string){
-    this.itemIndex = this.findTitleIndex(title, this.allShows);
+    this.itemIndex = this.findTitleIndex(title);
     this.getData.toggleBookmark(this.itemIndex, status).subscribe((data) =>{})
-    
+  
     this.itemIndex = this.findTitleIndexMovie(title);
     return this.movies[this.itemIndex].isBookmarked = !this.movies[this.itemIndex].isBookmarked
   }
 
-  findTitleIndex(title: string, array: any){
+  findTitleIndex(title: string){
     let titleIndex = this.allShows.findIndex((i: { title:string; }) => i.title === title)
     return titleIndex;
   }

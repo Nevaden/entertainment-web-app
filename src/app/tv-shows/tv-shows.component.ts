@@ -12,6 +12,8 @@ import { TvPipe } from '../pipes/tv.pipe';
 export class TvShowsComponent implements OnInit {
   allShows: any;
   tvShows: any;
+  itemIndex: any;
+
   constructor(private getData: DataService,
     private tvPipe: TvPipe) { }
 
@@ -32,11 +34,24 @@ export class TvShowsComponent implements OnInit {
   GetTVShows() {
     return this.getData.getData().subscribe((data)=>{
       this.tvShows = this.tvPipe.transform(data)
-      console.log(this.tvShows,"please")
     })
   }
   updateBookmark(status: boolean,title:string){
+    this.itemIndex = this.findTitleIndex(title);
+    this.getData.toggleBookmark(this.itemIndex, status).subscribe((data) =>{})
+  
+    this.itemIndex = this.findTitleIndexTV(title);
+    return this.tvShows[this.itemIndex].isBookmarked = !this.tvShows[this.itemIndex].isBookmarked
+  }
 
+  findTitleIndex(title: string){
+    let titleIndex = this.allShows.findIndex((i: { title:string; }) => i.title === title)
+    return titleIndex;
+  }
+
+  findTitleIndexTV(title: string){
+    let titleIndex = this.tvShows.findIndex((i: { title:string; }) => i.title === title)
+    return titleIndex;
   }
 
 }

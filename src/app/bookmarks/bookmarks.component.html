@@ -2,21 +2,24 @@
 <!-- <app-search-bar></app-search-bar> -->
 
 <h2>Bookmarked Movies</h2>
-
 <section>
-    <article class="card" *ngFor="let show of allShows | movie | bookmark let i = index">
-        <img src={{allShows[i].thumbnail.regular.large}} alt="">
+    <article class="card" *ngFor="let show of bookmarkedMovies let i = index">
+        <img src={{bookmarkedMovies[i].thumbnail.regular.large}} alt="">
         <div>
             <p>
-                {{allShows[i].year}}
+                {{bookmarkedMovies[i].year}}
             </p>
             <span></span>
             <img src="../../assets/icon-category-movie.svg" alt="tv-icon">
-            <p>{{allShows[i].category}}</p>
+            <p>{{bookmarkedMovies[i].category}}</p>
             <span></span>
-            <p>{{allShows[i].rating}}</p>
+            <p>{{bookmarkedMovies[i].rating}}</p>
         </div>
-        <h3>{{allShows[i].title}}</h3>
+        <h3>{{bookmarkedMovies[i].title}}</h3>
+
+        <div class="bookmark-container" (click)="updateBookmarkMovies(false,bookmarkedMovies[i].title)" >
+            <img src="../../assets/icon-bookmark-full.svg" alt="full bookmark icon">
+        </div>
     </article>
 </section>
 <!-- let i = index -->
@@ -25,22 +28,26 @@
     <!-- <div *ngIf="allShows == null; else elseBlock">Content to render when condition is true. </div>
     <ng-template #elseBlock>Content to render when condition is false. -->
 
-    <article class="card" *ngFor="let show of allShows | tv | bookmark let i = index">
-        <img src={{allShows[i].thumbnail.regular.large}} alt="">
+    <article class="card" *ngFor="let show of bookmarkedTV let i = index">
+        <img src={{bookmarkedTV[i].thumbnail.regular.large}} alt="">
         <div>
             <p>
-                {{allShows[i].year}}
+                {{bookmarkedTV[i].year}}
             </p>
             <span></span>
             <img src="../../assets/icon-category-tv.svg" alt="tv-icon">
-            <p>{{allShows[i].category}}</p>
+            <p>{{bookmarkedTV[i].category}}</p>
             <span></span>
-            <p>{{allShows[i].rating}}</p>
+            <p>{{bookmarkedTV[i].rating}}</p>
         </div>
-        <h3>{{allShows[i].title}}</h3>
-        <div class="bookmark">
-            <img src="" alt="">
+        <h3>{{bookmarkedTV[i].title}}</h3>
+
+        <div class="bookmark-container" (click)="updateBookmarkTV(false,bookmarkedTV[i].title)" >
+            <img src="../../assets/icon-bookmark-full.svg" alt="full bookmark icon">
         </div>
+
+
+
     </article>
     
 <!-- </ng-template> -->
