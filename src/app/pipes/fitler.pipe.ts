@@ -14,17 +14,23 @@ export class FitlerPipe implements PipeTransform {
     let returnArray: { title: boolean; }[] = [];
 
     for (const item of value) {
-      if(item[filterField].includes(filterString)){
+      let filterItem = item[filterField].toLowerCase()
+      let filterStringCase = filterString.toLowerCase()
+      if( filterItem.includes(filterStringCase) ){
         returnArray.push(item);
+        console.log("OMG IT WORKED SOMEWAY!?")
       }
-    }
-    return returnArray;
+  
+    
   }
+  console.log(returnArray)
+  return returnArray;
+}
     // value.forEach((element: { title: boolean; }) => {
     //   if(element.title){
     //     returnArray.push(element);
     //   }
-    // })
+    // }
 
 
 }

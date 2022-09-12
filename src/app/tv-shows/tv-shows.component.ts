@@ -13,7 +13,8 @@ export class TvShowsComponent implements OnInit {
   allShows: any;
   tvShows: any;
   itemIndex: any;
-
+  filterContent = '';
+  
   constructor(private getData: DataService,
     private tvPipe: TvPipe) { }
 

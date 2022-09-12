@@ -18,6 +18,7 @@ export class BookmarksComponent implements OnInit {
   bookmarkedTV: any;
   bookmarkedMovies: any;
   itemIndex: any;
+  filterContent = '';
  
   constructor(private getData: DataService,
     private bookmarkPipe: BookmarkPipe,

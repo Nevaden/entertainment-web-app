@@ -1,29 +1,34 @@
 
 
-<app-search-bar></app-search-bar>
+<div class="searchBar">
+    <label for="search">
+        <img src="../../assets/icon-search.svg" alt="">
+    </label>
+    <input type="text" id="bar" placeholder="Search for movies or TV series" [(ngModel)]="filterContent">
+</div>
 
 <section>
     <h2>TV Series</h2>
-    <article class="card" *ngFor="let show of tvShows let i = index">
+    <article class="card" *ngFor="let show of tvShows | fitler:filterContent:'title' let i = index">
         <img src={{show.thumbnail.regular.large}} alt="">
         <div>
             <p>
-                {{tvShows[i].year}}
+                {{show.year}}
             </p>
             <span></span>
             <img src="../../assets/icon-category-tv.svg" alt="tv-icon">
-            <p>TV Series</p>
+            <p>{{show.category}}</p>
             <span></span>
-            <p>{{tvShows[i].rating}}</p>
+            <p>{{show.rating}}</p>
         </div>
-        <h3>{{tvShows[i].title}}</h3>
+        <h3>{{show.title}}</h3>
         <div *ngIf="tvShows[i].isBookmarked === false; else bookmarked">
-            <div class="bookmark-container" (click)="updateBookmark(true,tvShows[i].title)" >
+            <div class="bookmark-container" (click)="updateBookmark(true,show.title)" >
                 <img src="../../assets/icon-bookmark-empty.svg" alt="empty bookmark icon">
             </div>
         </div>
         <ng-template #bookmarked >
-            <div class="bookmark-container" (click)="updateBookmark(false,tvShows[i].title)" >
+            <div class="bookmark-container" (click)="updateBookmark(false,show.title)" >
                 <img src="../../assets/icon-bookmark-full.svg" alt="empty bookmark icon">
             </div>
         </ng-template>

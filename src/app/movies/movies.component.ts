@@ -9,7 +9,7 @@ import { subscribeOn } from 'rxjs';
   styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent implements OnInit {
-  filterContent: any = '';
+  filterContent = '';
   allShows: any;
   movies: any;
   itemIndex: any;

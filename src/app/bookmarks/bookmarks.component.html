@@ -1,23 +1,28 @@
-
+<div class="searchBar">
+    <label for="search">
+        <img src="../../assets/icon-search.svg" alt="">
+    </label>
+    <input type="text" id="bar" placeholder="Search for movies or TV series" [(ngModel)]="filterContent">
+</div>
 <!-- <app-search-bar></app-search-bar> -->
 
 <h2>Bookmarked Movies</h2>
 <section>
-    <article class="card" *ngFor="let show of bookmarkedMovies let i = index">
-        <img src={{bookmarkedMovies[i].thumbnail.regular.large}} alt="">
+    <article class="card" *ngFor="let show of bookmarkedMovies | fitler:filterContent:'title' let i = index">
+        <img src={{show.thumbnail.regular.large}} alt="">
         <div>
             <p>
-                {{bookmarkedMovies[i].year}}
+                {{show.year}}
             </p>
             <span></span>
             <img src="../../assets/icon-category-movie.svg" alt="tv-icon">
-            <p>{{bookmarkedMovies[i].category}}</p>
+            <p>{{show.category}}</p>
             <span></span>
-            <p>{{bookmarkedMovies[i].rating}}</p>
+            <p>{{show.rating}}</p>
         </div>
-        <h3>{{bookmarkedMovies[i].title}}</h3>
+        <h3>{{show.title}}</h3>
 
-        <div class="bookmark-container" (click)="updateBookmarkMovies(false,bookmarkedMovies[i].title)" >
+        <div class="bookmark-container" (click)="updateBookmarkMovies(false,show.title)" >
             <img src="../../assets/icon-bookmark-full.svg" alt="full bookmark icon">
         </div>
     </article>
@@ -28,21 +33,21 @@
     <!-- <div *ngIf="allShows == null; else elseBlock">Content to render when condition is true. </div>
     <ng-template #elseBlock>Content to render when condition is false. -->
 
-    <article class="card" *ngFor="let show of bookmarkedTV let i = index">
-        <img src={{bookmarkedTV[i].thumbnail.regular.large}} alt="">
+    <article class="card" *ngFor="let show of bookmarkedTV | fitler:filterContent:'title' let i = index">
+        <img src={{show.thumbnail.regular.large}} alt="">
         <div>
             <p>
-                {{bookmarkedTV[i].year}}
+                {{show.year}}
             </p>
             <span></span>
             <img src="../../assets/icon-category-tv.svg" alt="tv-icon">
-            <p>{{bookmarkedTV[i].category}}</p>
+            <p>{{show.category}}</p>
             <span></span>
-            <p>{{bookmarkedTV[i].rating}}</p>
+            <p>{{show.rating}}</p>
         </div>
-        <h3>{{bookmarkedTV[i].title}}</h3>
+        <h3>{{show.title}}</h3>
 
-        <div class="bookmark-container" (click)="updateBookmarkTV(false,bookmarkedTV[i].title)" >
+        <div class="bookmark-container" (click)="updateBookmarkTV(false,show.title)" >
             <img src="../../assets/icon-bookmark-full.svg" alt="full bookmark icon">
         </div>
 
