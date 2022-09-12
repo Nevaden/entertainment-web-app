@@ -5,7 +5,6 @@ import { TvPipe } from '../pipes/tv.pipe';
 import { HomeTrendingPipe } from '../pipes/home-trending.pipe';
 
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

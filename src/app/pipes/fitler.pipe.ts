@@ -18,7 +18,7 @@ export class FitlerPipe implements PipeTransform {
       let filterStringCase = filterString.toLowerCase()
       if( filterItem.includes(filterStringCase) ){
         returnArray.push(item);
-        console.log("OMG IT WORKED SOMEWAY!?")
+       
       }
   
     

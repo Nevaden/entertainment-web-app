@@ -4,6 +4,19 @@
   margin: 0;
   padding: 0;
 }
+drag-scroll {
+  width: calc(100% + 17px);
+  height: calc(100% + 17px);
+  overflow: auto hidden;
+  display: block;
+  white-space: nowrap;
+}
+
+drag-scroll img {
+
+  width: 470px;
+  height: 230px;
+}
 
 .searchBar {
   align-items: center;
