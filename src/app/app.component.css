@@ -17,7 +17,7 @@
 
 #root, body {
     background: #10141e;
-    display: flex;
+    /* display: flex; */
     width: 100%;
     overflow-x: hidden;
 }

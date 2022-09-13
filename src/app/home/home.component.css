@@ -36,6 +36,19 @@
   width: 80%;
 }
 
+#searchResults{
+  color: #fff;
+  font-size: 32px;
+  font-weight: 300;
+  letter-spacing: -.5px;
+  position: absolute;
+  
+}
+.searchResults{
+  color: #fff;
+  top: 130px;
+}
+
 
 .trending-carousel {
   height: 230px;
@@ -55,6 +68,7 @@
   letter-spacing: -.5px;
   margin-bottom: 25px;
 }
+
 .trending-carousel-wrapper {
   box-sizing: content-box;
   display: flex;
@@ -382,6 +396,14 @@ h2 {
       position: absolute;
       top: 0;
   }
+  #searchResults{
+    color: #fff;
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: -.5px;
+    position: absolute;
+    top: 195px;
+  }
 }
 
 @media only screen and (max-width: 600px)  {
@@ -487,9 +509,28 @@ h2 {
     margin-bottom: 20px;
   }
 
+  .searchResults h1 {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: -.5px;
+    margin-bottom: 25px;
+  }
+
   .trending-card .cardData-container {
     font-size: 14px;
     top: 80px;
   }
-
+  #searchResults{
+    color: #fff;
+    font-size: 22px;
+    font-weight: 100;
+    letter-spacing: -.5px;
+    position: absolute;
+    top: 175px;
+  }
+  .searchResults{
+    color: #fff;
+    font-size: 22px;
+  }
 }

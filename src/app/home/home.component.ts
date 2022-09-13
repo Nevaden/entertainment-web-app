@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../service/data.service';
 import { HomeTrendingPipe } from '../pipes/home-trending.pipe';
-
+import { StopProagationDirective } from '../stop-proagation.directive';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   nextThumb = 1;
   trendingImg1: any = 0;
   trendingImg2: any = 1;
+
  
   emptyToggle = true;
   fullToggle = false;
@@ -34,7 +35,7 @@ export class HomeComponent implements OnInit {
   }
 
   GetData(){
-    return this.getData.getData().subscribe((data) =>{
+    this.getData.getData().subscribe((data) =>{
       this.homeShows = Object.keys(data).map(key=>{
         return {...data[key], uuid:key}
       })
@@ -42,25 +43,37 @@ export class HomeComponent implements OnInit {
   }
 
   GetTrending() {
-    return this.getData.getData().subscribe((data)=>{
-      this.trending = this.trendingPipe.transform(data)
+   this.getData.getData().subscribe((data)=>{
+      return this.trending = this.trendingPipe.transform(data)
     })
   }
 
   updateBookmark(status: boolean,title:string){
-    this.itemIndex = this.findTitleIndex(title);
-    this.getData.toggleBookmark(this.itemIndex, status).subscribe((data) =>{})
+    this.itemIndex = this.findTitleIndexTrending(title);
+    console.log(this.itemIndex)
 
+    if (this.itemIndex != -1) {
+      this.trending[this.itemIndex].isBookmarked = !this.trending[this.itemIndex].isBookmarked
+    }
+    
+
+    this.itemIndex = this.findTitleIndex(title);
+
+    this.getData.toggleBookmark(this.itemIndex, status).subscribe((data) =>{})
+ 
     return this.homeShows[this.itemIndex].isBookmarked = !this.homeShows[this.itemIndex].isBookmarked
   }
 
   updateTrendingBookmark(status: boolean,title:string){
-
-    this.itemIndex = this.findTitleIndex(title);
-    
-
+   
+   this.itemIndex = this.findTitleIndex(title);
    Object.keys(status).forEach(key =>{let keyValue = key});
    this.getData.toggleBookmark(this.itemIndex, status).subscribe((data) =>{})
+   
+   this.itemIndex = this.findTitleIndex(title);
+   this.getData.toggleBookmark(this.itemIndex, status).subscribe((data) =>{})
+   this.homeShows[this.itemIndex].isBookmarked = !this.homeShows[this.itemIndex].isBookmarked
+
    this.findTitleIndexTrending(title);
    return this.trending[this.itemIndex].isBookmarked = !this.trending[this.itemIndex].isBookmarked
  
@@ -91,7 +104,6 @@ export class HomeComponent implements OnInit {
 
 
   cycleTrending(){
-
     if (this.trendingImg1 == this.trending.length-1){
       this.trendingImg1 = 0 
     } else {
@@ -103,9 +115,5 @@ export class HomeComponent implements OnInit {
     } else {
       this.trendingImg2++;
     }
-
-    
-
   }
-
 }

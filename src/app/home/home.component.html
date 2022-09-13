@@ -4,14 +4,29 @@
         <img src="../../assets/icon-search.svg" alt="">
     </label>
     <input type="text" id="bar" placeholder="Search for movies or TV series" [(ngModel)]="filterContent">
-</div>
+</div> 
 
 
+<ng-container *ngIf="homeShows | fitler:filterContent:'title' as result; else noItems">
+    <section class="searchResults" *ngIf="filterContent.length > 0">
+    <div *ngFor="let show of (homeShows | fitler:filterContent:'title') let l = count">
+        <h1 id="searchResults" class="searchResults">Found {{l}} results for '{{filterContent}}'</h1>
+    </div>
+</section>
+      <ng-container *ngIf="!result.length">
+        <h1 class="searchResults" >Found 0 results for '{{filterContent}}'</h1>
+      </ng-container>
+  </ng-container>
+  <ng-template #noItems></ng-template>
+
+
+
+  
 <section class="trending" *ngIf="filterContent.length === 0">
     <h1>Trending</h1>
     <div class="trending-carousel">
             <div class="trending-carousel-wrapper">
-            <div class="trending-card" (click)="cycleTrending()">
+            <div class="trending-card" (click)="cycleTrending();">
                 <img src={{trending[trendingImg1].thumbnail.regular.large}} alt="">
                 <div class="cardData-container"  >
                     <p>
@@ -31,13 +46,13 @@
                     </div>
                 </div>
                 <div *ngIf="trending[trendingImg1].isBookmarked === false; else bookmarked">
-                    <div class="bookmark-container" (click)="updateTrendingBookmark(emptyToggle,trending[trendingImg1].title)" >
-                        <img src="../../assets/icon-bookmark-full.svg" alt="empty bookmark icon">
+                    <div class="bookmark-container" appStopProagation (click)="updateTrendingBookmark(emptyToggle,trending[trendingImg1].title)" >
+                        <img src="../../assets/icon-bookmark-empty.svg" alt="empty bookmark icon">
                     </div>
                 </div>
                 <ng-template #bookmarked >
-                    <div class="bookmark-container" (click)="updateTrendingBookmark(fullToggle,trending[trendingImg1].title)" >
-                        <img src="../../assets/icon-bookmark-empty.svg" alt="full bookmark icon">
+                    <div class="bookmark-container" appStopProagation (click)="updateTrendingBookmark(fullToggle,trending[trendingImg1].title)" >
+                        <img src="../../assets/icon-bookmark-full.svg" alt="full bookmark icon">
                     </div>
                 </ng-template>
             </div>
@@ -78,9 +93,9 @@
 
 
 <section class="cardContainer">
-    <h2>Recommended for you</h2>
-    <h2></h2>
-    <article class="card" *ngFor="let show of (homeShows | fitler:filterContent:'title') let i = index">
+    <h2 *ngIf="filterContent.length === 0">Recommended for you</h2>
+    <article class="card" *ngFor="let show of (homeShows | fitler:filterContent:'title') let l = count">
+        
         <img src={{show.thumbnail.regular.large}} alt="">
         <div class="cardData-container">
             <p>

@@ -1,15 +1,23 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { DataService } from '../service/data.service';
 
 @Pipe({
   name: 'fitler'
 })
 export class FitlerPipe implements PipeTransform {
 
+  constructor(getData: DataService) {
+  }
+
   transform(value: any, filterString: string, filterField: string): any {
 
-    if(value.length === 0 || filterString === ''){
-      return value;
-    }
+
+      // if(typeof value != undefined && (value.length === 0 || filterString === '' )){
+      //   return value;
+      if(typeof value != undefined && filterString === '' ){
+          return value;
+
+      }
 
     let returnArray: { title: boolean; }[] = [];
 
@@ -18,13 +26,11 @@ export class FitlerPipe implements PipeTransform {
       let filterStringCase = filterString.toLowerCase()
       if( filterItem.includes(filterStringCase) ){
         returnArray.push(item);
-       
       }
-  
-    
   }
-  console.log(returnArray)
-  return returnArray;
+
+  
+  return returnArray ;
 }
     // value.forEach((element: { title: boolean; }) => {
     //   if(element.title){

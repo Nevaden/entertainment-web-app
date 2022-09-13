@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 export class DataService {
   firebaseURL= 'https://entertainment-web-app-4d386-default-rtdb.firebaseio.com/'
   jsonEXT = '.json'
-  
+  searchResults = 0;
+
   url = `${this.firebaseURL}${this.jsonEXT}`
 
   
@@ -25,6 +26,7 @@ export class DataService {
     let urlBookmark = `${this.firebaseURL}${index}${this.jsonEXT}`
     return this.http.patch<any>(urlBookmark,{isBookmarked: status})
   }
+
 
   // toggleFavoriteStatus(url: string, itemKey:string, status: Boolean) {
   //   itemKey = getItemKey(title)

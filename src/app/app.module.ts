@@ -14,6 +14,8 @@ import { TvPipe } from './pipes/tv.pipe';
 import { BookmarkPipe } from './pipes/bookmark.pipe';
 import { FitlerPipe } from './pipes/fitler.pipe';
 import { FormsModule } from '@angular/forms';
+import { StopProagationDirective } from './stop-proagation.directive';
+
 
 
 
@@ -30,6 +32,8 @@ import { FormsModule } from '@angular/forms';
     TvPipe,
     BookmarkPipe,
     FitlerPipe,
+    StopProagationDirective,
+
   ],
   imports: [
     BrowserModule,
