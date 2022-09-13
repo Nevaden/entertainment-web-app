@@ -163,7 +163,7 @@
 h3 {
   display: block;
   font-size: 1.17em;
-  margin-block-start: 1em;
+  margin-block-start: 0em;
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
@@ -486,19 +486,9 @@ h2 {
   margin-bottom: 20px;
 }
 
-.trending-card .card__txtContainer {
+.trending-card .cardData-container {
   font-size: 14px;
   top: 80px;
 }
 
 }
-
-
-
-
-
-
-
-
-
-

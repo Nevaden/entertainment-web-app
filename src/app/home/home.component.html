@@ -41,7 +41,7 @@
                     </div>
                 </ng-template>
             </div>
-        <div class="trending-card">
+        <div class="trending-card" (click)="cycleTrending()">
             <img src={{trending[trendingImg2].thumbnail.regular.large}} alt="">
             <div class="cardData-container">
                 <p>
