@@ -480,15 +480,16 @@ h2 {
 
   .trending-carousel {
     height: 140px;
-}
-.trending h1 {
-  font-size: 20px;
-  margin-bottom: 20px;
-}
+  }
 
-.trending-card .cardData-container {
-  font-size: 14px;
-  top: 80px;
-}
+  .trending h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .trending-card .cardData-container {
+    font-size: 14px;
+    top: 80px;
+  }
 
 }

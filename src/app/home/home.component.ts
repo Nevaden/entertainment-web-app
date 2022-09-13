@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../service/data.service';
-import { MoviePipe } from '../pipes/movie.pipe';
-import { TvPipe } from '../pipes/tv.pipe';
 import { HomeTrendingPipe } from '../pipes/home-trending.pipe';
 
 
@@ -27,8 +25,6 @@ export class HomeComponent implements OnInit {
   updateObject: any;
 
   constructor(private getData: DataService,
-    private tvPipe: TvPipe,
-    private moviePipe: MoviePipe,
     private trendingPipe: HomeTrendingPipe ) { }
 
 
