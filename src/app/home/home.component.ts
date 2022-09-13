@@ -11,12 +11,20 @@ import { HomeTrendingPipe } from '../pipes/home-trending.pipe';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  selectedIndex: any;
   homeShows: any;
   movies: any;
   filterContent = '';
   itemIndex: any;
   trending: any;
+  currentTrend = 0;
+  nextThumb = 1;
+  trendingImg1: any = 0;
+  trendingImg2: any = 1;
+ 
+  emptyToggle = true;
+  fullToggle = false;
+  updateObject: any;
 
   constructor(private getData: DataService,
     private tvPipe: TvPipe,
@@ -50,6 +58,23 @@ export class HomeComponent implements OnInit {
     return this.homeShows[this.itemIndex].isBookmarked = !this.homeShows[this.itemIndex].isBookmarked
   }
 
+  updateTrendingBookmark(status: boolean,title:string){
+
+    this.itemIndex = this.findTitleIndex(title);
+    
+
+   Object.keys(status).forEach(key =>{let keyValue = key});
+   this.getData.toggleBookmark(this.itemIndex, status).subscribe((data) =>{})
+   this.findTitleIndexTrending(title);
+   return this.trending[this.itemIndex].isBookmarked = !this.trending[this.itemIndex].isBookmarked
+ 
+  }
+
+  findTitleIndexTrending(title: string){
+    let titleIndex = this.trending.findIndex((i: { title:string; }) => i.title === title)
+    return titleIndex;
+  }
+
   findTitleIndex(title: string){
     let titleIndex = this.homeShows.findIndex((i: { title:string; }) => i.title === title)
     return titleIndex;
@@ -60,5 +85,31 @@ export class HomeComponent implements OnInit {
     return titleIndex;
   }
  
+
+  nextTrend() {
+    const next = this.currentTrend + 1;
+    const nextImage = this.nextThumb + 1
+    this.currentTrend = next === this.trending.length ? 0 : next;
+    this.nextThumb = next === this.trending.length ? 0 : next;
+  }
+
+
+  cycleTrending(){
+
+    if (this.trendingImg1 == this.trending.length-1){
+      this.trendingImg1 = 0 
+    } else {
+      this.trendingImg1++;
+    }
+
+    if (this.trendingImg2 == this.trending.length-1){
+      this.trendingImg2 = 0 
+    } else {
+      this.trendingImg2++;
+    }
+
+    
+
+  }
 
 }

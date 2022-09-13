@@ -34,7 +34,6 @@ export class MoviesComponent implements OnInit {
   GetMovies() {
     return this.getData.getData().subscribe((data)=>{
       this.movies = this.moviePipe.transform(data)
-      console.log(this.moviePipe,"please")
     })
   }
 

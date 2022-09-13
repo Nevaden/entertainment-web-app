@@ -6,13 +6,76 @@
     <input type="text" id="bar" placeholder="Search for movies or TV series" [(ngModel)]="filterContent">
 </div>
 
-<!-- STAY AWAY FROM MY CAROSEL -->
-<!-- <drag-scroll>
-    <div *ngFor="let show of trending">
-    <img drag-scroll-item src={{show.thumbnail.regular.large}} />
-    </div>  
-  </drag-scroll> -->
-<!-- STAY AWAY FROM MY CAROSEL -->
+
+<section class="trending" *ngIf="filterContent.length === 0">
+    <h1>Trending</h1>
+    <div class="trending-carousel">
+            <div class="trending-carousel-wrapper">
+            <div class="trending-card" (click)="cycleTrending()">
+                <img src={{trending[trendingImg1].thumbnail.regular.large}} alt="">
+                <div class="cardData-container"  >
+                    <p>
+                        {{trending[trendingImg1].year}}
+                    </p>
+                    <span></span>
+                    <img src="../../assets/icon-category-movie.svg" alt="movie-icon" class="typeImg">
+                    <p>{{trending[trendingImg1].category}}</p>
+                    <span></span>
+                    <p>{{trending[trendingImg1].rating}}</p>
+                </div>
+                <h3>{{trending[trendingImg1].title}}</h3>
+                <div class="playHover">
+                    <div class="playButton">
+                        <img src="../../assets/icon-play.svg" alt="play button">
+                        <p>Play</p>
+                    </div>
+                </div>
+                <div *ngIf="trending[trendingImg1].isBookmarked === false; else bookmarked">
+                    <div class="bookmark-container" (click)="updateTrendingBookmark(emptyToggle,trending[trendingImg1].title)" >
+                        <img src="../../assets/icon-bookmark-full.svg" alt="empty bookmark icon">
+                    </div>
+                </div>
+                <ng-template #bookmarked >
+                    <div class="bookmark-container" (click)="updateTrendingBookmark(fullToggle,trending[trendingImg1].title)" >
+                        <img src="../../assets/icon-bookmark-empty.svg" alt="full bookmark icon">
+                    </div>
+                </ng-template>
+            </div>
+        <div class="trending-card">
+            <img src={{trending[trendingImg2].thumbnail.regular.large}} alt="">
+            <div class="cardData-container">
+                <p>
+                    {{trending[trendingImg2].year}}
+                </p>
+                <span></span>
+                <img src="../../assets/icon-category-movie.svg" alt="movie-icon" class="typeImg">
+                <p>{{trending[trendingImg2].category}}</p>
+                <span></span>
+                <p>{{trending[trendingImg2].rating}}</p>
+            </div>
+            <h3>{{trending[trendingImg2].title}}</h3>
+            <div class="playHover">
+                <div class="playButton">
+                    <img src="../../assets/icon-play.svg" alt="play button">
+                    <p>Play</p>
+                </div>
+            </div>
+            <div *ngIf="trending[trendingImg2].isBookmarked === false; else bookmarked">
+                <div class="bookmark-container" (click)="updateTrendingBookmark(emptyToggle,trending[trendingImg2].title)" >
+                    <img src="../../assets/icon-bookmark-empty.svg" alt="empty bookmark icon">
+                </div>
+            </div>
+            <ng-template #bookmarked >
+                <div class="bookmark-container" (click)="updateTrendingBookmark(fullToggle,trending[trendingImg2].title)" >
+                    <img src="../../assets/icon-bookmark-full.svg" alt="empty bookmark icon">
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>
+</section>
+
+
 
 <section class="cardContainer">
     <h2>Recommended for you</h2>

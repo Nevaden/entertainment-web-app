@@ -40,7 +40,7 @@ export class BookmarksComponent implements OnInit {
     return this.getData.getData().subscribe((data)=>{
       this.movies = this.moviePipe.transform(data)
       this.bookmarkedMovies = this.bookmarkPipe.transform(this.movies)
-      console.log(this.bookmarkedMovies)
+
     })
   }
 
@@ -48,7 +48,7 @@ export class BookmarksComponent implements OnInit {
     return this.getData.getData().subscribe((data)=>{
       this.tvShows = this.tvPipe.transform(data)
       this.bookmarkedTV = this.bookmarkPipe.transform(this.tvShows)
-      console.log(this.bookmarkedTV)
+
     })
   }
   updateBookmarkMovies(status: boolean,title:string){
