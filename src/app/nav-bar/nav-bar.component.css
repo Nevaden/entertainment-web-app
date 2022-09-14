@@ -28,6 +28,9 @@ nav {
     margin-right: 16px;
 }
 
+.icon-movies {
+    object-fit: cover;
+}
 
 
 @media screen and (min-width: 769px) {
@@ -58,7 +61,7 @@ nav {
         
     }
     nav svg {
-        margin: 0 16px;
+        margin: 0 5px;
     }
     .navLinks {
         display: flex;
@@ -88,8 +91,10 @@ nav {
     }
     
     nav svg {
-        margin: 0 16px;
+        margin: 0 5px;
+        
     }
+    
     .navLinks {
         display: flex;
         flex-direction: row;
@@ -119,3 +124,4 @@ nav a svg {
 .active svg path {
     fill: #FFF;
 }
+
