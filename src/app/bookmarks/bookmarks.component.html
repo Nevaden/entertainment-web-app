@@ -4,68 +4,76 @@
     </label>
     <input type="text" id="bar" placeholder="Search for movies or TV series" [(ngModel)]="filterContent">
 </div>
-<!-- <app-search-bar></app-search-bar> -->
 
 
-<section class="cardContainer">
-    <h2>Bookmarked Movies</h2>
-    <article class="card" *ngFor="let show of bookmarkedMovies | fitler:filterContent:'title' let i = index">
-        <img src={{show.thumbnail.regular.large}} alt="">
-        <div class="cardData-container">
-            <p>
-                {{show.year}}
-            </p>
-            <span></span>
-            <img src="../../assets/icon-category-movie.svg" alt="movie-icon" class="typeImg">
-            <p>{{show.category}}</p>
-            <span></span>
-            <p>{{show.rating}}</p>
-        </div>
-        <h3>{{show.title}}</h3>
-        <div class="playHover">
-            <div class="playButton">
-                <img src="../../assets/icon-play.svg" alt="play button">
-                <p>Play</p>
-            </div>
-        </div>      
-        <div class="bookmark-container" (click)="updateBookmarkMovies(false,show.title)" >
-            <img src="../../assets/icon-bookmark-full.svg" alt="full bookmark icon">
-        </div>
-    </article>
+<ng-container *ngIf="bookmarkedShows | fitler:filterContent:'title' as result; else noItems">
+    <section class="searchResults" *ngIf="filterContent.length > 0">
+    <div class="onlyFirstPlease" *ngFor="let show of (bookmarkedShows | fitler:filterContent:'title') let l = count">
+        <h1 id="searchResults" class="searchResults">Found {{l}} results for '{{filterContent}}'</h1>
+    </div>
 </section>
-<!-- let i = index -->
+      <ng-container *ngIf="!result.length">
+        <h1 class="searchResultsNone" >Found 0 results for '{{filterContent}}'</h1>
+      </ng-container>
+  </ng-container>
+  <ng-template #noItems></ng-template>
 
-<section class="cardContainer">
-    <h2>Bookmarked TV Series</h2>
-    <!-- <div *ngIf="allShows == null; else elseBlock">Content to render when condition is true. </div>
-    <ng-template #elseBlock>Content to render when condition is false. -->
 
-    <article class="card" *ngFor="let show of bookmarkedTV | fitler:filterContent:'title' let i = index">
-        <img src={{show.thumbnail.regular.large}} alt="">
-        <div class="cardData-container">
-            <p>
-                {{show.year}}
-            </p>
-            <span></span>
-            <img src="../../assets/icon-category-tv.svg" alt="tv-icon" class="typeImg">
-            <p>{{show.category}}</p>
-            <span></span>
-            <p>{{show.rating}}</p>
-        </div>
-        <h3>{{show.title}}</h3>
-        <div class="playHover">
-            <div class="playButton">
-                <img src="../../assets/icon-play.svg" alt="play button">
-                <p>Play</p>
+    <section class="cardContainer">
+        <h2 >Bookmarked Movies</h2>
+        <article class="card" *ngFor="let show of bookmarkedMovies | fitler:filterContent:'title'; let i = index">
+            <img src={{show.thumbnail.regular.large}} alt="">
+            <div class="cardData-container">
+                <p>
+                    {{show.year}}
+                </p>
+                <span></span>
+                <img src="../../assets/icon-category-movie.svg" alt="movie-icon" class="typeImg">
+                <p>{{show.category}}</p>
+                <span></span>
+                <p>{{show.rating}}</p>
             </div>
-        </div>
-        <div class="bookmark-container" (click)="updateBookmarkTV(false,show.title)" >
-            <img src="../../assets/icon-bookmark-full.svg" alt="full bookmark icon">
-        </div>
+            <h3>{{show.title}}</h3>
+            <div class="playHover">
+                <div class="playButton">
+                    <img src="../../assets/icon-play.svg" alt="play button">
+                    <p>Play</p>
+                </div>
+            </div>      
+            <div class="bookmark-container" (click)="updateBookmarkMovies(false,show.title)" >
+                <img src="../../assets/icon-bookmark-full.svg" alt="full bookmark icon">
+            </div>
+        </article>
+    </section>
+    <!-- let i = index -->
 
+    <section class="cardContainer">
+        <h2>Bookmarked TV Series</h2>
+        <!-- <div *ngIf="allShows == null; else elseBlock">Content to render when condition is true. </div>
+        <ng-template #elseBlock>Content to render when condition is false. -->
 
+        <article class="card" *ngFor="let show of bookmarkedTV | fitler:filterContent:'title' let i = index">
+            <img src={{show.thumbnail.regular.large}} alt="">
+            <div class="cardData-container">
+                <p>
+                    {{show.year}}
+                </p>
+                <span></span>
+                <img src="../../assets/icon-category-tv.svg" alt="tv-icon" class="typeImg">
+                <p>{{show.category}}</p>
+                <span></span>
+                <p>{{show.rating}}</p>
+            </div>
+            <h3>{{show.title}}</h3>
+            <div class="playHover">
+                <div class="playButton">
+                    <img src="../../assets/icon-play.svg" alt="play button">
+                    <p>Play</p>
+                </div>
+            </div>
+            <div class="bookmark-container" (click)="updateBookmarkTV(false,show.title)" >
+                <img src="../../assets/icon-bookmark-full.svg" alt="full bookmark icon">
+            </div>
+        </article>
+    </section>
 
-    </article>
-    
-<!-- </ng-template> -->
-</section>

@@ -17,6 +17,7 @@ export class BookmarksComponent implements OnInit {
   tvShows: any;
   bookmarkedTV: any;
   bookmarkedMovies: any;
+  bookmarkedShows: any;
   itemIndex: any;
   filterContent = '';
  
@@ -29,10 +30,17 @@ export class BookmarksComponent implements OnInit {
       this.GetData();
       this.GetTVShows();
       this.GetMovies();
+      this.GetBookmarkedShows()
   }
   GetData(){
     return this.getData.getData().subscribe((data) =>{
       this.allShows = data
+    })
+  }
+
+  GetBookmarkedShows() {
+    return this.getData.getData().subscribe((data)=>{
+      this.bookmarkedShows = this.bookmarkPipe.transform(this.movies)
     })
   }
 
@@ -48,7 +56,6 @@ export class BookmarksComponent implements OnInit {
     return this.getData.getData().subscribe((data)=>{
       this.tvShows = this.tvPipe.transform(data)
       this.bookmarkedTV = this.bookmarkPipe.transform(this.tvShows)
-
     })
   }
   updateBookmarkMovies(status: boolean,title:string){

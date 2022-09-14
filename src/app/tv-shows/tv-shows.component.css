@@ -3,17 +3,25 @@
     font-family: Outfit,sans-serif;
     margin: 0;
     padding: 0;
-}
-
-.searchBar {
+  }
+  .trendingContainer {
+    display: flex;
+    grid-column: 1fr 1fr;
+    /* overflow: hidden; */
+    width: 100%;
+  }
+  .displayNone{
+    display: none;
+  }
+  
+  .searchBar {
     align-items: center;
     display: flex;
-    margin: 72px 17px 16px 0px;
+    margin: 63px 17px 16px 0px;
     width: 80%;
-}
-
-
-.searchBar input {
+  }
+  
+  .searchBar input {
     
     background: transparent;
     border: none;
@@ -26,144 +34,163 @@
     padding-left: 25px;
     position: relative;
     width: 80%;
-}
-
-.cardContainer {
-    grid-gap: 40px;
-    cursor: pointer;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    height: auto;
-    margin: 40px 0 100px;
-    padding-right: 25px;
-    padding-top: 74px;
-    position: relative;
-    width: 100%;
-}
-
-.cardContainer .card {
-    border-radius: 8px;
-    height: 230px;
-    overflow: hidden;
-    position: relative;
-}
-
- h2 {
-    display: block;
-    font-size: 1.5em;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
- }
- .cardContainer h2 {
+  }
+  
+  #searchResults{
     color: #fff;
     font-size: 32px;
     font-weight: 300;
     letter-spacing: -.5px;
     position: absolute;
-    top: 0;
-}
-
-.cardContainer .card {
-    border-radius: 8px;
+    
+  }
+  .searchResultsNone{
+    color: #fff;
+    font-size: 32px;
+    font-weight: 100;
+    top: 200px;
+  }
+  .searchResults{
+    color: #fff;
+    top: 130px;
+  }
+  
+  
+  .trending-carousel {
     height: 230px;
+    width: 150%;
+    list-style: none;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .trending h1 {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: -.5px;
+    margin-bottom: 25px;
+  }
+  
+  .trending-carousel-wrapper {
+    box-sizing: content-box;
+    display: flex;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  .trending-card {
+    width: 40%;
+    min-width: 240px;
+    margin-right: 30px;
+    background: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    height: 100%;
     overflow: hidden;
     position: relative;
-}
-
-.cardContainer .card img {
-    display: block;
-    height: 174px;
+  }
+  .trending-card img {
+    display:block;
+    height: 100%;
     object-fit: cover;
     width: 100%;
-}
-
-.cardContainer .cardData-container {
+  }
+  
+  
+  .trending-carousel-wrapper .trending-card .playHover {
     align-items: center;
-    color: hsla(0,0%,100%,.75);
-    display: flex;
-    font-weight: 300;
-    margin: 8px 0 5px;
-}
-
-.cardContainer .cardData-container span {
-    background: hsla(0,0%,100%,.75);
-    border-radius: 50%;
-    height: 3px;
-    margin: 0 8px;
-    width: 3px;
-}
-.cardContainer .cardData-container .typeImg {
-    height: 12px;
-    margin-right: 6px;
-    width: 12px;
-}
-
-.cardContainer .card img {
-    display: block;
-    height: 174px;
-    object-fit: cover;
-    width: 100%;
-}
-
-.cardContainer .cardData-container span {
-    background: hsla(0,0%,100%,.75);
-    border-radius: 50%;
-    height: 3px;
-    margin: 0 8px;
-    width: 3px;
-}
-
-.cardContainer .card h3 {
-    color: #fff;
-    font-size: 18px;
-    font-weight: 500;
-}
-
-.cardContainer .card .playHover {
     background: rgba(0,0,0,.5);
     display: none;
-    height: 174px;
+    height: 100%;
     justify-content: center;
     left: 0;
     position: absolute;
     top: 0;
     width: 100%;
     z-index: 3;
-}
-
-.cardContainer .card .playHover .playButton {
+  }
+  
+  .trending-carousel-wrapper .trending-card .playHover .playButton {
     align-items: center;
     background: hsla(0,0%,100%,.3);
     border-radius: 48px;
     display: flex;
     height: 48px;
-    margin-top: 69px;
     width: 117px;
-}
-
-.cardContainer .card .playHover p {
+  }
+  
+  .trending-carousel-wrapper .trending-card .playHover p {
     color: #fff;
-    font-size: 18px;
-    font-weight: 500;
-}
-.cardContainer .card:hover .playHover {
+      font-size: 18px;
+      font-weight: 500;
+  }
+  .trending-carousel-wrapper .trending-card:hover .playHover {
     display: flex;
-}
-
-.cardContainer .card .playHover img {
+  }
+  
+  .trending-carousel-wrapper .trending-card .playHover img {
     height: 30px;
     margin: 0 19px 0 9px;
     width: 30px;
-}
-
-.bookmark-container:hover {
-    cursor: pointer;
-}
-
-.cardContainer .card .bookmark-container {
+  }
+  
+  
+  .trending-card .cardData-container {
+    align-items: center;
+    color: hsla(0,0%,100%,.75);
+    display: flex;
+    font-weight: 300;
+    left: 24px;
+    margin: 8px 0 5px;
+    position: absolute;
+    top: 160px;
+  }
+  
+  .trending-card .cardData-container span {
+    background: hsla(0,0%,100%,.75);
+    border-radius: 50%;
+    height: 3px;
+    margin: 0 8px;
+    width: 3px;
+  }
+  
+  .trending-card .cardData-container img {
+  
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+    height: 12px;
+    margin-right: 6px;
+    width: 12px;
+  }
+  
+  .trending-card h3 {
+    bottom: -15px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 500;
+    left: 24px;
+    position: absolute;
+  }
+  
+  h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 0em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+  }
+  
+  .trending-card .bookmark-container {
     align-items: center;
     background: rgba(0,0,0,.5);
     border-radius: 50%;
@@ -175,13 +202,176 @@
     top: 16px;
     width: 32px;
     z-index: 4;
-}
-
-.cardContainer .card .bookmark-container img {
+  }
+  .trending-card .bookmark-container img {
     height: 14px;
     width: 11.64px;
-}
-@media only screen and (max-width: 1200px)  {
+  }
+  
+  .cardContainer {
+    grid-gap: 40px;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    height: auto;
+    margin: 40px 0 100px;
+    padding-right: 25px;
+    padding-top: 74px;
+    position: relative;
+    width: 100%;
+    flex-shrink: 0;
+  }
+  
+  
+  .cardContainer .card {
+    border-radius: 8px;
+    height: 230px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+  }
+  .cardContainer h2 {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: -.5px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .cardContainer .card {
+    border-radius: 8px;
+    height: 230px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .cardContainer .card img {
+    display: block;
+    height: 174px;
+    object-fit: cover;
+    width: 100%;
+  }
+  
+  .cardContainer .cardData-container {
+    align-items: center;
+    color: hsla(0,0%,100%,.75);
+    display: flex;
+    font-weight: 300;
+    margin: 8px 0 5px;
+  }
+  
+  .cardContainer .cardData-container span {
+    background: hsla(0,0%,100%,.75);
+    border-radius: 50%;
+    height: 3px;
+    margin: 0 8px;
+    width: 3px;
+  }
+  .cardContainer .cardData-container .typeImg {
+    height: 12px;
+    margin-right: 6px;
+    width: 12px;
+  }
+  
+  .cardContainer .card img {
+    display: block;
+    height: 174px;
+    object-fit: cover;
+    width: 100%;
+  }
+  
+  .cardContainer .cardData-container span {
+    background: hsla(0,0%,100%,.75);
+    border-radius: 50%;
+    height: 3px;
+    margin: 0 8px;
+    width: 3px;
+  }
+  
+  .cardContainer .card h3 {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .cardContainer .card .playHover {
+    background: rgba(0,0,0,.5);
+    display: none;
+    height: 174px;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+  }
+  
+  .cardContainer .card .playHover .playButton {
+    align-items: center;
+    background: hsla(0,0%,100%,.3);
+    border-radius: 48px;
+    display: flex;
+    height: 48px;
+    margin-top: 69px;
+    width: 117px;
+  }
+  
+  .cardContainer .card .playHover p {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .cardContainer .card:hover .playHover {
+    display: flex;
+  }
+  
+  .cardContainer .card .playHover img {
+    height: 30px;
+    margin: 0 19px 0 9px;
+    width: 30px;
+  }
+  
+  .bookmark-container:hover {
+    cursor: pointer;
+    filter:invert();
+    
+  }
+  
+  .cardContainer .card .bookmark-container {
+    align-items: center;
+    background: rgba(0,0,0,.5);
+    border-radius: 50%;
+    display: flex;
+    height: 32px;
+    justify-content: center;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    width: 32px;
+    z-index: 4;
+  }
+  
+  .cardContainer .card .bookmark-container img {
+    height: 14px;
+    width: 11.64px;
+  }
+  @media only screen and (max-width: 1400px){
+    .cardContainer {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  }
+  
+  @media only screen and (max-width: 1200px)  {
     .cardContainer .cardData-container p {
         font-size: 13px;
     }
@@ -194,9 +384,9 @@
     .cardContainer {
         grid-gap: 20px;
     }
-}
-
-@media screen and (max-width: 769px) {
+  }
+  
+  @media screen and (max-width: 769px) {
     .searchBar {
         margin: 128px 0 33px;
     }
@@ -212,9 +402,17 @@
         position: absolute;
         top: 0;
     }
-}
-
-@media only screen and (max-width: 600px)  {
+    #searchResults{
+      color: #fff;
+      font-size: 32px;
+      font-weight: 300;
+      letter-spacing: -.5px;
+      position: absolute;
+      top: 195px;
+    }
+  }
+  
+  @media only screen and (max-width: 600px)  {
     .searchBar {
         margin-left: 50px;
         margin: 125px 0 28px;
@@ -231,8 +429,8 @@
     .searchBar label img {
         height: 24px;
     }
-
-
+  
+  
     .cardContainer {
         display: grid;
         grid-gap: 15px;
@@ -241,12 +439,12 @@
         padding-top: 50px;
         padding-left: 0px;
     }
-
+  
     .cardContainer h2 {
         transform: translate(10px, -40px);
         left: 0px
     }
-
+  
     .cardContainer .card {
         height: 160px;
     }
@@ -254,28 +452,28 @@
     .cardContainer .card img {
         height: 110px;
     }
-
+  
     .cardContainer .cardData-container p {
         font-size: 10px;
     }
-
+  
     .cardContainer .cardData-container span {
         margin: 0 7px;
     }
-
+  
     .cardContainer .cardData-container .typeImg {
         height: 10px;
         width: 10px;
     }
-
+  
     .cardContainer .cardData-container span {
         margin: 0 7px;
     }
-
+  
     .cardContainer .card .playHover {
         height: 110px;
     }
-
+  
     .cardContainer .card .playHover .playButton {
         height: 38px;
         margin-top: 31px;
@@ -284,16 +482,16 @@
     .cardContainer .card .playHover img {
         margin: 0 8px 0 6px;
     }
-
+  
     .bookmark-container:hover {
-
+  
         filter: invert();
-
+  
     }
     .cardContainer .card img {
         height: 110px;
     }
-
+  
     .cardContainer .card .bookmark-container {
         right: 5px;
         top: 5px;
@@ -301,13 +499,46 @@
     .cardContainer .cardData-container p {
         font-size: 11px;
     }
-}
-
-@media only screen and (max-width: 500px)  {
+  }
+  
+  @media only screen and (max-width: 500px)  {
     .inputContainer {
         margin: 128px 0 33px;
     }
-
-
-}
-
+  
+    .trending-carousel {
+      height: 140px;
+    }
+  
+    .trending h1 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+  
+    .searchResults h1 {
+      color: #fff;
+      font-size: 32px;
+      font-weight: 300;
+      letter-spacing: -.5px;
+      margin-bottom: 25px;
+    }
+  
+    .trending-card .cardData-container {
+      font-size: 14px;
+      top: 80px;
+    }
+    #searchResults{
+      color: #fff;
+      font-size: 22px;
+      font-weight: 100;
+      letter-spacing: -.5px;
+      position: absolute;
+      top: 175px;
+    }
+    .searchResultsNone{
+      color: #fff;
+      font-size: 22px;
+      font-weight: 100;
+    }
+  }
+  

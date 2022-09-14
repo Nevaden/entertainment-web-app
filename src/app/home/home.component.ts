@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   movies: any;
   filterContent = '';
   itemIndex: any;
-  trending: any;
+  trending: any = [{thumbnail: {regular:{large:""}}},{thumbnail: {regular:{large:""}}}];
   currentTrend = 0;
   nextThumb = 1;
   trendingImg1: any = 0;

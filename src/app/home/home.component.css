@@ -44,6 +44,12 @@
   position: absolute;
   
 }
+.searchResultsNone{
+  color: #fff;
+  font-size: 32px;
+  font-weight: 100;
+  top: 200px;
+}
 .searchResults{
   color: #fff;
   top: 130px;
@@ -529,8 +535,9 @@ h2 {
     position: absolute;
     top: 175px;
   }
-  .searchResults{
+  .searchResultsNone{
     color: #fff;
     font-size: 22px;
+    font-weight: 100;
   }
 }
