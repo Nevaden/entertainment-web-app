@@ -69,6 +69,11 @@ export class BookmarksComponent implements OnInit {
   updateBookmarkTV(status: boolean,title:string){
     this.itemIndex = this.findTitleIndex(title);
     this.getData.toggleBookmark(this.itemIndex, status).subscribe((data) =>{})
+
+
+    this.itemIndex = this.findTitleIndexTV(title);
+    this.bookmarkedTV[this.itemIndex].isBookmarked = !this.bookmarkedTV[this.itemIndex].isBookmarked
+    this.bookmarkedTV.splice(this.itemIndex,1)
   
     this.itemIndex = this.findTitleIndexTV(title);
     return this.bookmarkedTV[this.itemIndex].isBookmarked = !this.bookmarkedTV[this.itemIndex].isBookmarked

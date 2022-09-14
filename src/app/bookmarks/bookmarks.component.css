@@ -32,7 +32,11 @@
     display: none;
 }
 .onlyFirstPlease:first-child{
-    font-size: 32px ;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: -.5px;
+    margin-bottom: 25px;
 }
 
 .searchResultsNone  {
