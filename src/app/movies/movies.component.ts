@@ -19,9 +19,7 @@ export class MoviesComponent implements OnInit {
   ngOnInit(): void {
     this.GetData();
     this.GetMovies();
-
   }
-
 
   GetData(){
     return this.getData.getData().subscribe((data) =>{
@@ -40,7 +38,6 @@ export class MoviesComponent implements OnInit {
   updateBookmark(status: boolean,title:string){
     this.itemIndex = this.findTitleIndex(title);
     this.getData.toggleBookmark(this.itemIndex, status).subscribe((data) =>{})
-  
     this.itemIndex = this.findTitleIndexMovie(title);
     return this.movies[this.itemIndex].isBookmarked = !this.movies[this.itemIndex].isBookmarked
   }
@@ -54,6 +51,4 @@ export class MoviesComponent implements OnInit {
     let titleIndex = this.movies.findIndex((i: { title:string; }) => i.title === title)
     return titleIndex;
   }
-  
-
 }

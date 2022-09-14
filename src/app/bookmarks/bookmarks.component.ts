@@ -5,7 +5,6 @@ import { MoviePipe } from '../pipes/movie.pipe';
 import { TvPipe } from '../pipes/tv.pipe';
 import { pipe } from 'rxjs/internal/util/pipe';
 
-
 @Component({
   selector: 'app-bookmarks',
   templateUrl: './bookmarks.component.html',

@@ -17,5 +17,4 @@ export class BookmarkPipe implements PipeTransform {
     //console.log(returnArray)
     return returnArray;
   }
-
 }

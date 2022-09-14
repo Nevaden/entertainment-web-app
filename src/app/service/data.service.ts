@@ -21,21 +21,10 @@ export class DataService {
     return this.http.get(this.url)
   }
 
-
   toggleBookmark(index: string, status: boolean) {
     let urlBookmark = `${this.firebaseURL}${index}${this.jsonEXT}`
     return this.http.patch<any>(urlBookmark,{isBookmarked: status})
   }
-
-
-  // toggleFavoriteStatus(url: string, itemKey:string, status: Boolean) {
-  //   itemKey = getItemKey(title)
-  //   patch(url+itemKey,{isBookmarked: true})
-  //   asdasdasd/3
-  // }
-
-
- 
   }
 
 

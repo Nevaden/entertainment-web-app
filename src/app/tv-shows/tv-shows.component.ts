@@ -28,7 +28,6 @@ export class TvShowsComponent implements OnInit {
       this.allShows = Object.keys(data).map(key=>{
         return {...data[key], uuid:key}
       })
-      
     })
   }
 
@@ -54,5 +53,4 @@ export class TvShowsComponent implements OnInit {
     let titleIndex = this.tvShows.findIndex((i: { title:string; }) => i.title === title)
     return titleIndex;
   }
-
 }

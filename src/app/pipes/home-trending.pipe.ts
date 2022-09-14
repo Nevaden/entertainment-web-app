@@ -14,10 +14,6 @@ export class HomeTrendingPipe implements PipeTransform {
         returnArray.push(element);
       }
     })
-
     return returnArray;
-
-
   }
-
 }

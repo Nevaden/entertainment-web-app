@@ -16,9 +16,6 @@ import { FitlerPipe } from './pipes/fitler.pipe';
 import { FormsModule } from '@angular/forms';
 import { StopProagationDirective } from './stop-proagation.directive';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +30,6 @@ import { StopProagationDirective } from './stop-proagation.directive';
     BookmarkPipe,
     FitlerPipe,
     StopProagationDirective,
-
   ],
   imports: [
     BrowserModule,

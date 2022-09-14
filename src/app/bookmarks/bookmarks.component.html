@@ -5,7 +5,6 @@
     <input type="text" id="bar" placeholder="Search for movies or TV series" [(ngModel)]="filterContent">
 </div>
 
-
 <ng-container *ngIf="bookmarkedShows | fitler:filterContent:'title' as result; else noItems">
     <section class="searchResults" *ngIf="filterContent.length > 0">
     <div class="onlyFirstPlease" *ngFor="let show of (bookmarkedShows | fitler:filterContent:'title') let l = count">
@@ -19,7 +18,7 @@
   <ng-template #noItems></ng-template>
 
 
-    <section class="cardContainer">
+    <section class="cardContainer" *ngIf="(bookmarkedMovies | fitler:filterContent:'title').length !== 0" >
         <h2 >Bookmarked Movies</h2>
         <article class="card" *ngFor="let show of bookmarkedMovies | fitler:filterContent:'title'; let i = index">
             <img src={{show.thumbnail.regular.large}} alt="">
@@ -46,12 +45,8 @@
         </article>
     </section>
    
-
-    <section class="cardContainer">
+    <section class="cardContainer" *ngIf="(bookmarkedTV | fitler:filterContent:'title').length !== 0">
         <h2>Bookmarked TV Series</h2>
-        <!-- <div *ngIf="allShows == null; else elseBlock">Content to render when condition is true. </div>
-        <ng-template #elseBlock>Content to render when condition is false. -->
-
         <article class="card" *ngFor="let show of bookmarkedTV | fitler:filterContent:'title' let i = index">
             <img src={{show.thumbnail.regular.large}} alt="">
             <div class="cardData-container">
@@ -76,4 +71,3 @@
             </div>
         </article>
     </section>
-

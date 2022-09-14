@@ -10,13 +10,8 @@ export class FitlerPipe implements PipeTransform {
   }
 
   transform(value: any, filterString: string, filterField: string): any {
-
-
-      // if(typeof value != undefined && (value.length === 0 || filterString === '' )){
-      //   return value;
       if(typeof value != undefined && filterString === '' ){
           return value;
-
       }
 
     let returnArray: { title: boolean; }[] = [];
@@ -28,15 +23,6 @@ export class FitlerPipe implements PipeTransform {
         returnArray.push(item);
       }
   }
-
-  
   return returnArray ;
-}
-    // value.forEach((element: { title: boolean; }) => {
-    //   if(element.title){
-    //     returnArray.push(element);
-    //   }
-    // }
-
-
+  }
 }

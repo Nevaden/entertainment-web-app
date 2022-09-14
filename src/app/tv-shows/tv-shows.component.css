@@ -7,9 +7,9 @@
   .trendingContainer {
     display: flex;
     grid-column: 1fr 1fr;
-    /* overflow: hidden; */
     width: 100%;
   }
+  
   .displayNone{
     display: none;
   }

@@ -16,5 +16,4 @@ export class TvPipe implements PipeTransform {
     })
     return returnArray;
   }
-
 }

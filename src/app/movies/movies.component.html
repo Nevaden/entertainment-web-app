@@ -22,13 +22,9 @@
 </ng-container>
 <ng-template #noItems></ng-template>
 
-
-
-
 <section class="cardContainer">
   <h2 *ngIf="filterContent.length === 0">Movies</h2>
   <article
-  
     class="card"
     *ngFor="let show of movies | fitler: filterContent:'title'; let i = index"
   >

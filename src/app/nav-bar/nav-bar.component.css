@@ -9,7 +9,6 @@ nav {
     position: absolute;
     top: 32px;
     width: 96px;
-
 }
 
 .navLinks {
@@ -92,11 +91,6 @@ nav {
     }
 }
 
-
-
-
-
-
 nav a {
     cursor: pointer;
 }
@@ -118,7 +112,3 @@ nav a svg {
 .active svg path {
     fill: #FFF;
 }
-
-
-
-

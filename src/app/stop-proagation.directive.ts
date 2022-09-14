@@ -12,7 +12,3 @@ export class StopProagationDirective {
       event.stopPropagation();
   }
 }
-
-
-
-  
