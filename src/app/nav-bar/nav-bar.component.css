@@ -14,11 +14,13 @@ nav {
 .navLinks {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
-/* .navLink{
-    margin-left: 10px;
-} */
+.navLink{
+    margin-left: 15%;
+    margin-right: 15%;
+}
 
 .profileImage{
     height: 40px;
