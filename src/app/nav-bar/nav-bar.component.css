@@ -16,6 +16,10 @@ nav {
     flex-direction: column;
 }
 
+/* .navLink{
+    margin-left: 10px;
+} */
+
 .profileImage{
     height: 40px;
     width: 40px;
