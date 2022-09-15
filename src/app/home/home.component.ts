@@ -29,20 +29,18 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.GetData();
     this.GetTrending();
+    console.log(this.homeShows,"allshows")
   }
 
   GetData(){
-    this.getData.getData().subscribe((data) =>{
-      this.homeShows = Object.keys(data).map(key=>{
-        return {...data[key], uuid:key}
-      })
+    return this.getData.getData().subscribe((data) =>{
+      this.homeShows = data
+      this.GetTrending()
     })
   }
 
   GetTrending() {
-   this.getData.getData().subscribe((data)=>{
-      return this.trending = this.trendingPipe.transform(data)
-    })
+      return this.trending = this.trendingPipe.transform(this.homeShows)
   }
 
   updateBookmark(status: boolean,title:string){

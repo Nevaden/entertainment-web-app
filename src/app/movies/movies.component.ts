@@ -23,16 +23,14 @@ export class MoviesComponent implements OnInit {
 
   GetData(){
     return this.getData.getData().subscribe((data) =>{
-      this.allShows = Object.keys(data).map(key=>{
-        return {...data[key], uuid:key}
-      })
+      this.allShows = data
+      this.GetMovies()
     })
   }
+  
 
   GetMovies() {
-    return this.getData.getData().subscribe((data)=>{
-      this.movies = this.moviePipe.transform(data)
-    })
+      this.movies = this.moviePipe.transform(this.allShows)
   }
 
   updateBookmark(status: boolean,title:string){

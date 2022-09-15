@@ -27,36 +27,38 @@ export class BookmarksComponent implements OnInit {
 
   ngOnInit(): void {
       this.GetData();
-      this.GetTVShows();
-      this.GetMovies();
-      this.GetBookmarkedShows()
+      // 
+      // 
+      // 
   }
   GetData(){
     return this.getData.getData().subscribe((data) =>{
       this.allShows = data
+
+      this.GetBookmarkedShows()
+
+      // bookmarked movies
+      this.GetMovies();
+
+      // bookmarked tv shows
+      this.GetTVShows();
     })
   }
 
   GetBookmarkedShows() {
-    return this.getData.getData().subscribe((data)=>{
-      this.bookmarkedShows = this.bookmarkPipe.transform(this.movies)
-    })
+     this.bookmarkedShows = this.bookmarkPipe.transform(this.allShows)
   }
 
   GetMovies() {
-    return this.getData.getData().subscribe((data)=>{
-      this.movies = this.moviePipe.transform(data)
+      this.movies = this.moviePipe.transform(this.allShows)
       this.bookmarkedMovies = this.bookmarkPipe.transform(this.movies)
-
-    })
   }
 
   GetTVShows() {
-    return this.getData.getData().subscribe((data)=>{
-      this.tvShows = this.tvPipe.transform(data)
-      this.bookmarkedTV = this.bookmarkPipe.transform(this.tvShows)
-    })
+      this.tvShows = this.tvPipe.transform(this.allShows)
+      this.bookmarkedTV = this.bookmarkPipe.transform(this.tvShows) 
   }
+
   updateBookmarkMovies(status: boolean,title:string){
     this.itemIndex = this.findTitleIndex(title);
     this.getData.toggleBookmark(this.itemIndex, status).subscribe((data) =>{})
@@ -68,12 +70,9 @@ export class BookmarksComponent implements OnInit {
   updateBookmarkTV(status: boolean,title:string){
     this.itemIndex = this.findTitleIndex(title);
     this.getData.toggleBookmark(this.itemIndex, status).subscribe((data) =>{})
-
-
     this.itemIndex = this.findTitleIndexTV(title);
     this.bookmarkedTV[this.itemIndex].isBookmarked = !this.bookmarkedTV[this.itemIndex].isBookmarked
     this.bookmarkedTV.splice(this.itemIndex,1)
-  
     this.itemIndex = this.findTitleIndexTV(title);
     return this.bookmarkedTV[this.itemIndex].isBookmarked = !this.bookmarkedTV[this.itemIndex].isBookmarked
   }
@@ -90,5 +89,12 @@ export class BookmarksComponent implements OnInit {
   findTitleIndexTV(title: string) {
     let titleIndex = this.bookmarkedTV.findIndex((i: { title:string; }) => i.title === title)
     return titleIndex;
+  }
+  consolePipes(){
+    console.log(this.bookmarkedTV,"Booktv");
+    console.log(this.bookmarkedMovies,"Bookmovies");
+    console.log(this.allShows,"allshows");
+    console.log(this.bookmarkedShows,"Bookshows");
+ 
   }
 }

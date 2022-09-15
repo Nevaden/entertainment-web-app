@@ -12,7 +12,7 @@
 
 <ng-container *ngIf="movies | fitler:filterContent:'title' as result; else noItems">
   <section class="searchResults" *ngIf="filterContent.length > 0">
-  <div *ngFor="let show of (movies | fitler:filterContent:'title') let l = count">
+  <div  class="onlyFirstPlease" *ngFor="let show of (movies | fitler:filterContent:'title') let l = count">
       <h1 id="searchResults" class="searchResults">Found {{l}} results for '{{filterContent}}'</h1>
   </div>
 </section>
