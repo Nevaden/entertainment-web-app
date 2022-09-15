@@ -25,17 +25,15 @@ export class TvShowsComponent implements OnInit {
 
   GetData(){
     return this.getData.getData().subscribe((data) =>{
-      this.allShows = Object.keys(data).map(key=>{
-        return {...data[key], uuid:key}
-      })
+      this.allShows = data
+      this.GetTVShows()
     })
   }
 
   GetTVShows() {
-    return this.getData.getData().subscribe((data)=>{
-      this.tvShows = this.tvPipe.transform(data)
-    })
+      this.tvShows = this.tvPipe.transform(this.allShows)
   }
+
   updateBookmark(status: boolean,title:string){
     this.itemIndex = this.findTitleIndex(title);
     this.getData.toggleBookmark(this.itemIndex, status).subscribe((data) =>{})
